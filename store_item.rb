@@ -6,10 +6,10 @@ class Store_items
   attr_reader :name, :price, :main_ingredient
   attr_writer :name
 
-  def initialize(input_name, input_price, input_main_ingredient)
-    @name = input_name
-    @price = input_price
-    @main_ingredient = input_main_ingredient
+  def initialize(input_options)
+    @name = input_options[:name]
+    @price = input_options[:price]
+    @main_ingredient = input_options[:main_ingredient]
   end
 
   # def name
@@ -33,7 +33,7 @@ class Store_items
   #   end
 end
 
-item1 = Store_items.new("candybar", 1, "chocolate")
+item1 = Store_items.new({ name: "candybar", price: 1, main_ingredient: "chocolate" })
 
 p item1
 item1.name = "mars bar"
