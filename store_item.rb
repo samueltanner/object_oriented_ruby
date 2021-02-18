@@ -40,3 +40,5 @@ item1.name = "mars bar"
 p item1
 item1.raise_price_for_inflation
 p item1
+item2 = Store_items.new({ name: "snake oil", main_ingredient: "sugar water" })
+p item2.price
