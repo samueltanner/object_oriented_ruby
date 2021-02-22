@@ -5,6 +5,7 @@ class Vehicle
   def initialize(input_options)
     @speed = input_options[:speed] || 0
     @direction = input_options[:direction] || "north"
+  end
 
   def brake
     @speed = 0
@@ -20,10 +21,10 @@ class Vehicle
 end
 
 class Car < Vehicle
-  attr_reader :make :model
+  attr_reader :make, :model
 
-  def initialize (input_options)
-    super()
+  def initialize(input_options)
+    super
     @make = input_options[:make]
     @model = input_options[:model]
   end
@@ -39,13 +40,15 @@ class Car < Vehicle
   def turn_signal
     puts "blink blink"
   end
-
 end
 
 class Bike < Vehicle
+  attr_reader :type
+  attr_writer :type
+
   def initialize(input_options)
     super
-    @type = input_options[:type]
+    @type = input_options[:type] || "a really awful bike"
   end
 
   def ring_bell
@@ -53,8 +56,12 @@ class Bike < Vehicle
   end
 end
 
-car1 = Car.new(make: "honda", model: "civic" speed: 10, direction: "north")
-p car1
+car1 = Car.new(make: "honda", model: "civic", speed: 10, direction: "north")
+car1.turn_signal
+
+bike1 = Bike.new({})
+# bike1.type = "mountain"
+p bike1
 # bike1 = Bike.new
 # # car1 = Car.new(make: "honda")
 
